@@ -11,6 +11,8 @@ import static org.junit.Assert.*;
  */
 public class CourseTest {
     Course testCourse;
+    Module testModule;
+    Student testStudent;
     ArrayList<Student> students;
     ArrayList<Module> modules;
     LocalDate start, end;
@@ -22,6 +24,7 @@ public class CourseTest {
         ArrayList<Student> emptyStudents = new ArrayList<>();
         
         modules = new ArrayList<>(3);
+        testModule = new Module("CT143", 4505, emptyStudents, emptyCourses);
         Module testModule1 = new Module("CT144", 4506, emptyStudents, emptyCourses);
         Module testModule2 = new Module("CT145", 4507, emptyStudents, emptyCourses);
         Module testModule3 = new Module("CT146", 4508, emptyStudents, emptyCourses);
@@ -39,7 +42,7 @@ public class CourseTest {
         
         start = LocalDate.parse("2021-09-06");
         end = LocalDate.parse("2021-12-17");
-        testCourse = new Course("Computer Science", start, end, modules, students);
+        testCourse = new Course("Computer Science", start, end, emptyModules, emptyStudents);
     }
     
 
@@ -59,23 +62,29 @@ public class CourseTest {
         testCourse.setName("Engineering");
         assertEquals(testCourse.getName(), "Engineering");
     }
+    
+    /**
+     * Test of setModules method, of class Course.
+     */
+    @Test(expected = Test.None.class /* no exception expected */)
+    public void testSetModules() {
+        testCourse.setModules(modules);
+    }
 
     /**
      * Test of getModules method, of class Course.
      */
-    @Test
+    @Test(expected = Test.None.class /* no exception expected */)
     public void testGetModules() {
         assertEquals(testCourse.getModules(), modules);
     }
-
+    
     /**
-     * Test of setModules method, of class Course.
+     * Test of setStudents method, of class Course.
      */
-    @Test
-    public void testSetModules() {
-        modules.remove(0);
-        testCourse.setModules(modules);
-        assertEquals(testCourse.getModules(), modules);
+    @Test(expected = Test.None.class /* no exception expected */)
+    public void testSetStudents() {
+        testCourse.setStudents(students);
     }
 
     /**
@@ -83,16 +92,6 @@ public class CourseTest {
      */
     @Test
     public void testGetStudents() {
-        assertEquals(testCourse.getStudents(), students);
-    }
-
-    /**
-     * Test of setStudents method, of class Course.
-     */
-    @Test
-    public void testSetStudents() {
-        students.remove(0);
-        testCourse.setStudents(students);
         assertEquals(testCourse.getStudents(), students);
     }
 
@@ -130,6 +129,14 @@ public class CourseTest {
         LocalDate en = LocalDate.parse("2021-09-08");
         testCourse.setEndDate(en);
         assertEquals(testCourse.getEndDate(), en);
+    }
+    
+    /**
+     * Test of addModule method, of class Course.
+     */
+    @Test
+    public void testAddModule() {
+        testCourse.addModule(testModule);
     }
     
 }
