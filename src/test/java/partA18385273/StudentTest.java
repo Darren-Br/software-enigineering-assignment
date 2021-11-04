@@ -12,41 +12,48 @@ public class StudentTest {
     public Module testModule;
     public Student testStudent;
     public ArrayList<Module> modules;
+    public ArrayList<String> moduleNames;
     public ArrayList<Course> courses;
+    public ArrayList<String> courseNames;
 
     public StudentTest() {
-        ArrayList<Module> emptyModules = new ArrayList<>();
-        ArrayList<Course> emptyCourses  = new ArrayList<>();
-        ArrayList<Student> emptyStudents = new ArrayList<>();
 
         modules = new ArrayList<>(3);
-        testModule = new Module("CT143", 4505, emptyStudents, emptyCourses);
-        Module testModule1 = new Module("CT144", 4506, emptyStudents, emptyCourses);
-        Module testModule2 = new Module("CT145", 4507, emptyStudents, emptyCourses);
-        Module testModule3 = new Module("CT146", 4508, emptyStudents, emptyCourses);
+        moduleNames = new ArrayList<>(3);
+        testModule = new Module("CT143", 4505);
+        Module testModule1 = new Module("CT144", 4506);
+        Module testModule2 = new Module("CT145", 4507);
+        Module testModule3 = new Module("CT146", 4508);
         modules.add(testModule1);
+        moduleNames.add("CT144");
         modules.add(testModule2);
+        moduleNames.add("CT145");
         modules.add(testModule3);
+        moduleNames.add("CT146");
 
         courses = new ArrayList<>(3);
+        courseNames = new ArrayList<>(3);
         LocalDate start = LocalDate.parse("2021-09-06");
         LocalDate end = LocalDate.parse("2021-12-17");
-        testCourse = new Course("Physics", start, end, emptyModules, emptyStudents);
-        Course testCourse1 = new Course("Computer Science", start, end, emptyModules, emptyStudents);
+        testCourse = new Course("Physics", start, end);
+        Course testCourse1 = new Course("Computer Science", start, end);
 
         start = LocalDate.parse("2021-09-05");
         end = LocalDate.parse("2021-12-16");
-        Course testCourse2 = new Course("Biomedical Engineering", start, end, emptyModules, emptyStudents);
+        Course testCourse2 = new Course("Biomedical Engineering", start, end);
 
         start = LocalDate.parse("2021-09-04");
         end = LocalDate.parse("2021-12-15");
-        Course testCourse3 = new Course("Nursing", start, end, emptyModules, emptyStudents);
+        Course testCourse3 = new Course("Nursing", start, end);
 
         courses.add(testCourse1);
+        courseNames.add(testCourse1.getName());
         courses.add(testCourse2);
+        courseNames.add(testCourse2.getName());
         courses.add(testCourse3);
+        courseNames.add(testCourse3.getName());
 
-        testStudent = new Student("JohnDoe", 21, "15-03-2000", 18385273, emptyModules, emptyCourses);
+        testStudent = new Student("JohnDoe", 21, "15-03-2000", 18385273);
     }
 
     /**
@@ -130,8 +137,8 @@ public class StudentTest {
      */
     @Test
     public void testGetModules() {
-        testStudent.setModules(modules);
-        assertEquals(testStudent.getModules(), modules);
+        testStudent.setModules(moduleNames);
+        assertEquals(testStudent.getModules(), moduleNames);
     }
 
     /**
@@ -139,7 +146,7 @@ public class StudentTest {
      */
     @Test
     public void testSetModules() {
-        testStudent.setModules(modules);
+        testStudent.setModules(moduleNames);
     }
 
     /**
@@ -147,8 +154,8 @@ public class StudentTest {
      */
     @Test
     public void testGetCourses() {
-        testStudent.setCourses(courses);
-        assertEquals(testStudent.getCourses(), courses);
+        testStudent.setCourses(courseNames);
+        assertEquals(testStudent.getCourses(), courseNames);
     }
 
     /**
@@ -156,7 +163,7 @@ public class StudentTest {
      */
     @Test
     public void testSetCourses() {
-        testStudent.setCourses(courses);
+        testStudent.setCourses(courseNames);
     }
 
     /**
@@ -164,7 +171,7 @@ public class StudentTest {
      */
     @Test
     public void testAddModule() {
-        testStudent.addModule(testModule);
+        testStudent.addModule(testModule.getName());
     }
 
     /**
@@ -172,7 +179,7 @@ public class StudentTest {
      */
     @Test
     public void testRemoveModuleByName() {
-        testStudent.setModules(modules);
+        testStudent.setModules(moduleNames);
         int size = testStudent.getModules().size();
         //should do nothing
         testStudent.removeModuleByName("fake");
@@ -184,27 +191,11 @@ public class StudentTest {
     }
 
     /**
-     * Test of removeModuleById method, of class Student.
-     */
-    @Test
-    public void testRemoveModuleById() {
-        testStudent.setModules(modules);
-        int size = testStudent.getModules().size();
-        //should do nothing
-        testStudent.removeModuleById(0000);
-        assertEquals(size, testStudent.getModules().size());
-        
-        size = testStudent.getModules().size();
-        testStudent.removeModuleById(4506);
-        assertEquals(size - 1, testStudent.getModules().size());
-    }
-
-    /**
      * Test of removeModuleByLocation method, of class Student.
      */
     @Test
     public void testRemoveModuleByLocation() {
-        testStudent.addModule(testModule);
+        testStudent.addModule(testModule.getName());
         int size = testStudent.getModules().size();
         testStudent.removeModuleByLocation(0);
         assertEquals(size - 1, testStudent.getModules().size());
@@ -215,7 +206,7 @@ public class StudentTest {
      */
     @Test
     public void testAddCourse() {
-        testStudent.addCourse(testCourse);
+        testStudent.addCourse(testCourse.getName());
     }
 
     /**
@@ -223,7 +214,7 @@ public class StudentTest {
      */
     @Test
     public void testRemoveCourseByName() {
-        testStudent.setCourses(courses);
+        testStudent.setCourses(courseNames);
         int size = testStudent.getCourses().size();
         //should do nothing
         testStudent.removeCourseByName("fake");
@@ -239,7 +230,7 @@ public class StudentTest {
      */
     @Test
     public void testRemoveCourseByLocation() {
-        testStudent.addCourse(testCourse);
+        testStudent.addCourse(testCourse.getName());
         int size = testStudent.getCourses().size();
         testStudent.removeCourseByLocation(0);
         assertEquals(size - 1, testStudent.getCourses().size());

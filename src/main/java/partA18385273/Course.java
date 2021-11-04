@@ -2,6 +2,7 @@
 package partA18385273;
 
 // Imports
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.joda.time.LocalDate;
@@ -11,17 +12,17 @@ public class Course {
     // class variables
     private String name;
     private List<Module> modules;
-    private List<Student> students;
+    private List<String> students;
     private LocalDate startDate;
     private LocalDate endDate;
 
     // constructor
-    public Course(String name, LocalDate startDate, LocalDate endDate, List<Module> modules, List<Student> students) {
+    public Course(String name, LocalDate startDate, LocalDate endDate) {
         this.name = name;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.modules = modules;
-        this.students = students;
+        this.modules = new ArrayList<>();
+        this.students = new ArrayList<>();
     }
 
     public String getName() {
@@ -77,7 +78,7 @@ public class Course {
         modules.remove(loc);
     }
 
-    public void addStudent(Student su) {
+    public void addStudent(String su) {
         students.add(su);
     }
 
@@ -86,11 +87,11 @@ public class Course {
         students.remove(loc);
     }
 
-    public List<Student> getStudents() {
+    public List<String> getStudents() {
         return students;
     }
 
-    public void setStudents(List<Student> students) {
+    public void setStudents(List<String> students) {
         this.students = students;
     }
 
@@ -98,24 +99,10 @@ public class Course {
         //creates an iterator and goes through the students
         //until the student is found by name and is deleted
         //if a student is not found will not delete anything
-        Iterator<Student> itr = students.iterator();
+        Iterator<String> itr = students.iterator();
         while (itr.hasNext()) {
-            Student stu = itr.next();
-            if (stu.getName().equals(name)) {
-                students.remove(stu);
-                break;
-            }
-        }
-    }
-
-    public void removeStudentById(int id) {
-        //creates an iterator and goes through the students
-        //until the student is found by id and is deleted
-        //if an id is not found will not delete anything
-        Iterator<Student> itr = students.iterator();
-        while (itr.hasNext()) {
-            Student stu = itr.next();
-            if (stu.getId() == id) {
+            String stu = itr.next();
+            if (stu.equals(name)) {
                 students.remove(stu);
                 break;
             }

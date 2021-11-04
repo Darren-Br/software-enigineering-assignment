@@ -12,35 +12,37 @@ public class CourseTest {
     public Module testModule;
     public Student testStudent;
     public ArrayList<Student> students;
+    public ArrayList<String> studentNames;
     public ArrayList<Module> modules;
     public LocalDate start, end;
 
     public CourseTest() {
-        ArrayList<Module> emptyModules = new ArrayList<>();
-        ArrayList<Course> emptyCourses  = new ArrayList<>();
-        ArrayList<Student> emptyStudents = new ArrayList<>();
 
         modules = new ArrayList<>(3);
-        testModule = new Module("CT143", 4505, emptyStudents, emptyCourses);
-        Module testModule1 = new Module("CT144", 4506, emptyStudents, emptyCourses);
-        Module testModule2 = new Module("CT145", 4507, emptyStudents, emptyCourses);
-        Module testModule3 = new Module("CT146", 4508, emptyStudents, emptyCourses);
+        testModule = new Module("CT143", 4505);
+        Module testModule1 = new Module("CT144", 4506);
+        Module testModule2 = new Module("CT145", 4507);
+        Module testModule3 = new Module("CT146", 4508);
         modules.add(testModule1);
         modules.add(testModule2);
         modules.add(testModule3);
 
         students = new ArrayList<>(3);
-        testStudent = new Student("JohnDoesey", 20, "14-03-2000", 18385272, emptyModules, emptyCourses);
-        Student johnDoe = new Student("JohnDoe", 21, "15-03-2000", 18385273, emptyModules, emptyCourses);
-        Student sueDoe = new Student("SueDoe", 22, "16-03-1999", 18385274, emptyModules, emptyCourses);
-        Student kateDoe = new Student("KateDoe", 23, "16-03-1998", 18385275, emptyModules, emptyCourses);
+        studentNames = new ArrayList<>(3);
+        testStudent = new Student("JohnDoesey", 20, "14-03-2000", 18385272);
+        Student johnDoe = new Student("JohnDoe", 21, "15-03-2000", 18385273);
+        Student sueDoe = new Student("SueDoe", 22, "16-03-1999", 18385274);
+        Student kateDoe = new Student("KateDoe", 23, "16-03-1998", 18385275);
         students.add(johnDoe);
+        studentNames.add("JohnDoe");
         students.add(sueDoe);
+        studentNames.add("SueDoe");
         students.add(kateDoe);
+        studentNames.add("KateDoe");
 
         start = LocalDate.parse("2021-09-06");
         end = LocalDate.parse("2021-12-17");
-        testCourse = new Course("Computer Science", start, end, emptyModules, emptyStudents);
+        testCourse = new Course("Computer Science", start, end);
     }
 
 
@@ -83,7 +85,7 @@ public class CourseTest {
      */
     @Test()
     public void testSetStudents() {
-        testCourse.setStudents(students);
+        testCourse.setStudents(studentNames);
     }
 
     /**
@@ -91,8 +93,8 @@ public class CourseTest {
      */
     @Test
     public void testGetStudents() {
-        testCourse.setStudents(students);
-        assertEquals(testCourse.getStudents(), students);
+        testCourse.setStudents(studentNames);
+        assertEquals(testCourse.getStudents(), studentNames);
     }
 
     /**
@@ -100,7 +102,7 @@ public class CourseTest {
      */
     @Test
     public void testAddStudent() {
-        testCourse.addStudent(testStudent);
+        testCourse.addStudent(testStudent.getName());
     }
 
     /**
@@ -108,7 +110,7 @@ public class CourseTest {
      */
     @Test
     public void testRemoveStudentByName() {
-        testCourse.addStudent(testStudent);
+        testCourse.addStudent(testStudent.getName());
         int size = testCourse.getStudents().size();
         //should do nothing
         testCourse.removeStudentByName("fake");
@@ -120,27 +122,11 @@ public class CourseTest {
     }
 
     /**
-     * Test of removeStudentById method, of class Course.
-     */
-    @Test
-    public void testRemoveStudentById() {
-        testCourse.setStudents(students);
-        int size = testCourse.getStudents().size();
-        //should do nothing
-        testCourse.removeStudentById(0000);
-        assertEquals(size, testCourse.getStudents().size());
-
-        size = testCourse.getStudents().size();
-        testCourse.removeStudentById(18385273);
-        assertEquals(size - 1, testCourse.getStudents().size());
-    }
-
-    /**
      * Test of removeStudentByLocation method, of class Course.
      */
     @Test
     public void testRemoveStudentByLocation() {
-        testCourse.setStudents(students);
+        testCourse.setStudents(studentNames);
         int size = testCourse.getStudents().size();
         testCourse.removeStudentByLocation(0);
         assertEquals(size - 1, testCourse.getStudents().size());

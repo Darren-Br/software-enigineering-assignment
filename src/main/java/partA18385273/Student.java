@@ -2,6 +2,7 @@
 package partA18385273;
 
 //imports
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,19 +13,18 @@ public class Student {
     private int age;
     private String dob;
     private int id;
-    private List<Module> modules;
-    private List<Course> courses;
+    private List<String> modules;
+    private List<String> courses;
     private String username;
 
     //constructor
-    public Student(String name, int age, String dob, int id,
-                   List<Module> modules, List<Course> courses) {
+    public Student(String name, int age, String dob, int id) {
         this.name = name;
         this.age = age;
         this.dob = dob;
         this.id = id;
-        this.modules = modules;
-        this.courses = courses;
+        this.modules = new ArrayList<>();
+        this.courses = new ArrayList<>();
     }
 
     //getters and setters
@@ -65,15 +65,15 @@ public class Student {
         this.id = id;
     }
 
-    public List<Module> getModules() {
+    public List<String> getModules() {
         return modules;
     }
 
-    public void setModules(List<Module> modules) {
+    public void setModules(List<String> modules) {
         this.modules = modules;
     }
 
-    public void addModule(Module mod) {
+    public void addModule(String mod) {
         modules.add(mod);
     }
 
@@ -81,10 +81,10 @@ public class Student {
         //creates an iterator and goes through the modules
         //until the module is found by name and is deleted
         //if a module is not found will not delete anything
-        Iterator<Module> itr = modules.iterator();
+        Iterator<String> itr = modules.iterator();
         while (itr.hasNext()) {
-            Module mod = itr.next();
-            if (mod.getName().equals(name)) {
+            String mod = itr.next();
+            if (mod.equals(name)) {
                 modules.remove(mod);
                 break;
             }
@@ -96,29 +96,15 @@ public class Student {
         modules.remove(loc);
     }
 
-    public void removeModuleById(int id) {
-        //creates an iterator and goes through the modules
-        //until the module is found by id and is deleted
-        //if an id is not found it will not delete anything
-        Iterator<Module> itr = modules.iterator();
-        while (itr.hasNext()) {
-            Module mod = itr.next();
-            if (mod.getId() == id) {
-                modules.remove(mod);
-                break;
-            }
-        }
-    }
-
-    public List<Course> getCourses() {
+    public List<String> getCourses() {
         return courses;
     }
 
-    public void setCourses(List<Course> courses) {
+    public void setCourses(List<String> courses) {
         this.courses = courses;
     }
 
-    public void addCourse(Course c) {
+    public void addCourse(String c) {
         courses.add(c);
     }
 
@@ -131,10 +117,10 @@ public class Student {
         //creates an iterator and goes through the Courses
         //until the Course is found by name and is deleted
         //if a course is not found will not delete anything
-        Iterator<Course> itr = courses.iterator();
+        Iterator<String> itr = courses.iterator();
         while (itr.hasNext()) {
-            Course c = itr.next();
-            if (c.getName().equals(name)) {
+            String c = itr.next();
+            if (c.equals(name)) {
                 courses.remove(c);
                 break;
             }

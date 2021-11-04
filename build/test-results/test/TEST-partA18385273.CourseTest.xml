@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="partA18385273.CourseTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2021-11-04T03:44:36" hostname="MacBook-Air.local" time="0.022">
+<testsuite name="partA18385273.CourseTest" tests="17" skipped="0" failures="0" errors="0" timestamp="2021-11-04T16:46:18" hostname="MacBook-Air.local" time="0.025">
   <properties/>
   <testcase name="testRemoveModuleByLocation" classname="partA18385273.CourseTest" time="0.001"/>
-  <testcase name="testGetEndDate" classname="partA18385273.CourseTest" time="0.0"/>
-  <testcase name="testGetStartDate" classname="partA18385273.CourseTest" time="0.0"/>
+  <testcase name="testGetEndDate" classname="partA18385273.CourseTest" time="0.001"/>
+  <testcase name="testGetStartDate" classname="partA18385273.CourseTest" time="0.001"/>
   <testcase name="testSetStudents" classname="partA18385273.CourseTest" time="0.0"/>
   <testcase name="testGetStudents" classname="partA18385273.CourseTest" time="0.0"/>
   <testcase name="testRemoveModuleById" classname="partA18385273.CourseTest" time="0.0"/>
-  <testcase name="testSetModules" classname="partA18385273.CourseTest" time="0.009"/>
-  <testcase name="testAddStudent" classname="partA18385273.CourseTest" time="0.001"/>
+  <testcase name="testSetModules" classname="partA18385273.CourseTest" time="0.0"/>
+  <testcase name="testAddStudent" classname="partA18385273.CourseTest" time="0.0"/>
   <testcase name="testGetName" classname="partA18385273.CourseTest" time="0.001"/>
-  <testcase name="testSetStartDate" classname="partA18385273.CourseTest" time="0.0"/>
-  <testcase name="testAddModule" classname="partA18385273.CourseTest" time="0.001"/>
-  <testcase name="testSetEndDate" classname="partA18385273.CourseTest" time="0.0"/>
+  <testcase name="testSetStartDate" classname="partA18385273.CourseTest" time="0.004"/>
+  <testcase name="testAddModule" classname="partA18385273.CourseTest" time="0.003"/>
+  <testcase name="testSetEndDate" classname="partA18385273.CourseTest" time="0.011"/>
   <testcase name="testRemoveStudentByName" classname="partA18385273.CourseTest" time="0.001"/>
-  <testcase name="testRemoveStudentByLocation" classname="partA18385273.CourseTest" time="0.005"/>
-  <testcase name="testGetModules" classname="partA18385273.CourseTest" time="0.0"/>
-  <testcase name="testSetName" classname="partA18385273.CourseTest" time="0.001"/>
+  <testcase name="testRemoveStudentByLocation" classname="partA18385273.CourseTest" time="0.0"/>
+  <testcase name="testGetModules" classname="partA18385273.CourseTest" time="0.002"/>
+  <testcase name="testSetName" classname="partA18385273.CourseTest" time="0.0"/>
   <testcase name="testRemoveModuleByName" classname="partA18385273.CourseTest" time="0.0"/>
-  <testcase name="testRemoveStudentById" classname="partA18385273.CourseTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
