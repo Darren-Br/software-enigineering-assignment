@@ -1,6 +1,0 @@
-partA18385273/ModuleTest.java
- partA18385273.ModuleTest
-partA18385273/CourseTest.java
- partA18385273.CourseTest
-partA18385273/StudentTest.java
- partA18385273.StudentTest
