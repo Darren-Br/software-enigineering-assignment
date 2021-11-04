@@ -1,18 +1,24 @@
+//Darren Browne - 18385273
 package partA18385273;
- 
+
+//imports
 import java.util.Iterator;
 import java.util.List;
 
-public class Student {
-    public String name;
-    public int age;
-    public String dob;
-    public int id;
-    public List<Module> modules;
-    public List<Course> courses;
-    public String username;
 
-    public Student(String name, int age, String dob, int id, List<Module> modules, List<Course> courses) {
+public class Student {
+    //class variables
+    private String name;
+    private int age;
+    private String dob;
+    private int id;
+    private List<Module> modules;
+    private List<Course> courses;
+    private String username;
+
+    //constructor
+    public Student(String name, int age, String dob, int id,
+                   List<Module> modules, List<Course> courses) {
         this.name = name;
         this.age = age;
         this.dob = dob;
@@ -21,11 +27,12 @@ public class Student {
         this.courses = courses;
     }
 
+    //getters and setters
     public String getUsername() {
         this.username = name + Integer.toString(age);
         return username;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -65,28 +72,42 @@ public class Student {
     public void setModules(List<Module> modules) {
         this.modules = modules;
     }
-    
-    public void addModule(Module mod){
+
+    public void addModule(Module mod) {
         modules.add(mod);
     }
-    
-    public void removeModuleByName(String name){
+
+    public void removeModuleByName(String name) {
         //creates an iterator and goes through the modules
         //until the module is found by name and is deleted
         //if a module is not found will not delete anything
         Iterator<Module> itr = modules.iterator();
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             Module mod = itr.next();
-            if (mod.getName().equals(name)){
+            if (mod.getName().equals(name)) {
                 modules.remove(mod);
                 break;
             }
         }
     }
-    
-    public void removeModule(int loc){
+
+    public void removeModuleByLocation(int loc) {
         //remove module by location in list
         modules.remove(loc);
+    }
+
+    public void removeModuleById(int id) {
+        //creates an iterator and goes through the modules
+        //until the module is found by id and is deleted
+        //if an id is not found it will not delete anything
+        Iterator<Module> itr = modules.iterator();
+        while (itr.hasNext()) {
+            Module mod = itr.next();
+            if (mod.getId() == id) {
+                modules.remove(mod);
+                break;
+            }
+        }
     }
 
     public List<Course> getCourses() {
@@ -96,28 +117,28 @@ public class Student {
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
-    
-    public void addCourse(Course c){
+
+    public void addCourse(Course c) {
         courses.add(c);
     }
-    
-    public void removeCourse(int loc){
-        //remove course by location in 
+
+    public void removeCourseByLocation(int loc) {
+        //remove course by location in array
         courses.remove(loc);
     }
-    
-    public void removeCourseByName(String name){
+
+    public void removeCourseByName(String name) {
         //creates an iterator and goes through the Courses
         //until the Course is found by name and is deleted
         //if a course is not found will not delete anything
         Iterator<Course> itr = courses.iterator();
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             Course c = itr.next();
-            if (c.getName().equals(name)){
+            if (c.getName().equals(name)) {
                 courses.remove(c);
                 break;
             }
         }
     }
-    
+
 }

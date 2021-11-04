@@ -71,7 +71,7 @@ set CLASSPATH=%APP_HOME%\lib\partA18385273.jar;%APP_HOME%\lib\terasoluna-gfw-jod
 
 
 @rem Execute partA18385273
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %PART_A18385273_OPTS%  -classpath "%CLASSPATH%" partA18385273.Main %*
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %PART_A18385273_OPTS%  -classpath "%CLASSPATH%"  %*
 
 :end
 @rem End local scope for the variables with windows NT shell

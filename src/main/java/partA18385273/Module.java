@@ -1,22 +1,27 @@
+//Darren Browne - 18385273
 package partA18385273;
 
+//imports
 import java.util.Iterator;
 import java.util.List;
 
 public class Module {
-    
-    public String name;
-    public int id;
-    public List<Student> students;
-    public List<Course> courses;
+    //class variables
+    private String name;
+    private int id;
+    private List<Student> students;
+    private List<Course> courses;
 
-    public Module(String name, int id, List<Student> students, List<Course> courses) {
+    //constructor
+    public Module(String name, int id, List<Student> students,
+                  List<Course> courses) {
         this.name = name;
         this.id = id;
         this.courses = courses;
         this.students = students;
     }
 
+    //getters and setters
     public String getName() {
         return name;
     }
@@ -40,28 +45,42 @@ public class Module {
     public void setStudents(List<Student> students) {
         this.students = students;
     }
-    
-    public void addStudent(Student su){
+
+    public void addStudent(Student su) {
         students.add(su);
     }
-    
-    public void removeStudentByName(String name){
+
+    public void removeStudentByName(String name) {
         //creates an iterator and goes through the students
         //until the student is found by name and is deleted
         //if a student is not found will not delete anything
         Iterator<Student> itr = students.iterator();
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             Student stu = itr.next();
-            if (stu.getName().equals(name)){
+            if (stu.getName().equals(name)) {
                 students.remove(stu);
                 break;
             }
         }
     }
-    
-    public void removeStudent(int loc){
+
+    public void removeStudentByLocation(int loc) {
         //remove student by location in list
         students.remove(loc);
+    }
+
+    public void removeStudentById(int id) {
+        //creates an iterator and goes through the students
+        //until the student is found by id and is deleted
+        //if an id is not found will not delete anything
+        Iterator<Student> itr = students.iterator();
+        while (itr.hasNext()) {
+            Student stu = itr.next();
+            if (stu.getId() == id) {
+                students.remove(stu);
+                break;
+            }
+        }
     }
 
     public List<Course> getCourses() {
@@ -71,28 +90,28 @@ public class Module {
     public void setCourses(List<Course> courses) {
         this.courses = courses;
     }
-    
-    public void addCourse(Course c){
+
+    public void addCourse(Course c) {
         courses.add(c);
     }
-    
-    public void removeCourse(int loc){
-        //remove course by location in 
+
+    public void removeCourse(int loc) {
+        //remove course by location in list
         courses.remove(loc);
     }
-    
-    public void removeCourseByName(String name){
+
+    public void removeCourseByName(String name) {
         //creates an iterator and goes through the Courses
         //until the Course is found by name and is deleted
         //if a course is not found will not delete anything
         Iterator<Course> itr = courses.iterator();
-        while(itr.hasNext()){
+        while (itr.hasNext()) {
             Course c = itr.next();
-            if (c.getName().equals(name)){
+            if (c.getName().equals(name)) {
                 courses.remove(c);
                 break;
             }
         }
     }
-    
+
 }
