@@ -115,4 +115,17 @@ public class Module {
         }
     }
 
+    @Override
+    public String toString() {
+        String output = "";
+        output += "Module Name: " + name + "\n";
+        output += "Module ID: " + Integer.toString(id) + "\n";
+        output += "Module's Courses: " + String.join(", ", courses) + "\n";
+        String studentList = "";
+        for (Student su : students) {
+            studentList += su.getName() + ", ";
+        }
+        output += "Module's Students: " + studentList + "\n";
+        return output;
+    }
 }

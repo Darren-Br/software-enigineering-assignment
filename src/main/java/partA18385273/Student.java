@@ -3,6 +3,7 @@ package partA18385273;
 
 //imports
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -125,6 +126,19 @@ public class Student {
                 break;
             }
         }
+    }
+    
+    @Override
+    public String toString() {
+        String output = "";
+        output += "Student Name: " + name + "\n";
+        output += "Student Age: " + Integer.toString(age) + "\n";
+        output += "Student DOB: " + dob + "\n";
+        output += "Student ID: " + Integer.toString(id) + "\n";
+        output += "Student Username: " + username + "\n";
+        output += "Student Modules: " + String.join(", ", modules) + "\n";
+        output += "Student Courses: " + String.join(", ", courses) + "\n";
+        return output;
     }
 
 }

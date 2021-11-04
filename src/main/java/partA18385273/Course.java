@@ -125,4 +125,19 @@ public class Course {
         this.endDate = endDate;
     }
 
+    @Override
+    public String toString() {
+        String output = "";
+        output += "Course Name: " + name + "\n";
+        output += "Course Start Date: " + startDate.toString() + "\n";
+        output += "Course End Date: " + endDate.toString() + "\n";
+        output += "Course's Students: " + String.join(", ", students) + "\n";
+        String moduleList = "";
+        for (Module m : modules) {
+            moduleList += m.getName() + ", ";
+        }
+        output += "Course's modules: " + moduleList + "\n";
+        return output;
+    }
+
 }
