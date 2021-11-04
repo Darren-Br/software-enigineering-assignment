@@ -135,7 +135,7 @@ public class Student {
         output += "Student Age: " + Integer.toString(age) + "\n";
         output += "Student DOB: " + dob + "\n";
         output += "Student ID: " + Integer.toString(id) + "\n";
-        output += "Student Username: " + username + "\n";
+        output += "Student Username: " + this.getUsername() + "\n";
         output += "Student Modules: " + String.join(", ", modules) + "\n";
         output += "Student Courses: " + String.join(", ", courses) + "\n";
         return output;
